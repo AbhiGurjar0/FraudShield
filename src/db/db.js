@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 function connectDB() {
     mongoose.connect('mongodb://localhost:27017/fraudshield')
@@ -9,4 +9,5 @@ function connectDB() {
             console.error('Error connecting to MongoDB', err);
         });
 }
-module.exports = connectDB;
+
+export default connectDB;

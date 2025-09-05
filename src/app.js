@@ -1,16 +1,20 @@
-const express = require('express');
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import mongoose from "mongoose";
+import path from "path";
+import { fileURLToPath } from "url";
+import userRoutes from "./routes/userRoutes.js";
 const app = express();
-const port = 3000;
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const userRoutes = require('./routes/userRoutes');
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/', userRoutes);
 
-module.exports = app;
+export default app;
