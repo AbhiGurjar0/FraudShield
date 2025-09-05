@@ -16,7 +16,7 @@ async function extractPdfFromUrl(pdfUrl) {
     const arrayBuffer = await res.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
     const data = await pdfParse(buffer);
-    return data.text; // full PDF text
+    return data.text;
 }
 
 
@@ -54,7 +54,17 @@ const client = new OpenAI({
 async function ai(message) {
     const response = await client.chat.completions.create({
         model: "deepseek/deepseek-r1:free",
-        messages: [{ role: "user", content: message }],
+        messages: [
+            {
+                role: "system",
+                content: "You are a risk-assessment AI. Respond only in JSON with fields: Risk Score, Risk Level, Message."
+            },
+            {
+                role: "user",
+                content: `Analyze this text:
+      "${message}"`
+            }
+        ]
     });
 
     return response.choices[0].message.content;
@@ -66,10 +76,19 @@ app.get("/ask", async (req, res) => {
 
 });
 app.post('/upload', upload.single('pdfFile'), async (req, res) => {
-    console.log(req.file); 
-    const pdfText = await extractPdfFromUrl(req.file.path);
-    result = pdfText;
-    console.log(result);
+    try {
+
+        const pdfBuffer = fs.readFileSync(req.file.path);
+        const data = await pdfParse(pdfBuffer);
+        const text = data.text;
+        const result = await ai(text);
+        console.log("AI Response:", result);
+        fs.unlinkSync(req.file.path);
+        res.send({ text });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error extracting PDF text");
+    }
 });
 app.post("/scan", async (req, res) => {
     let { message } = req.body;
@@ -77,32 +96,8 @@ app.post("/scan", async (req, res) => {
     if (!message) {
         return res.status(400).json({ error: "Message is required" });
     }
-
-
-    const pdfRegex = /(https?:\/\/[^\s]+\.pdf)/i;
-    const videoRegex = /(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be|vimeo\.com|dailymotion\.com|facebook\.com\/.*\/videos\/|instagram\.com\/(p|reel|tv)\/)[^\s]+/i;
-
-    let type = "text";
-    if (videoRegex.test(message)) {
-        type = "video";
-    }
-    if (pdfRegex.test(message)) {
-        type = "pdf";
-    }
-    let result = "";
-
-    if (type === "video") {
-        const videoUrl = message;
-        const transcript = await transcribeVideoFromUrl(videoUrl);
-        console.log(transcript);
-    } else if (type === "pdf") {
-        const pdfUrl = message.match(pdfRegex)[0];
-        const pdfText = await extractPdfFromUrl(pdfUrl);
-        result = pdfText;
-    } else {
-        result = message;
-    }
-    let response = await ai(result);
+    let response = await ai(message);
+    console.log("AI Response:", response);
     res.json({ reply: response });
 });
 

@@ -140,30 +140,30 @@
             <h2 class="text-3xl font-bold tracking-tight text-surface-50">Is this a scam?</h2>
             <p class="mt-2 text-lg text-surface-400">Paste a suspicious message below to find out.</p>
           </div>
-          <form action="/api/scan" method="POST">
+          <form id="scanForm">
             <div class="space-y-4">
               <textarea name="message"
                 class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
                 placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></textarea>
-              <button
+              <button type="submit"
                 class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
                 <span class="material-symbols-outlined">shield_moon</span>
                 <span>Scan Message</span>
               </button>
             </div>
           </form>
-          <form action="/api/upload" method="POST" enctype="multipart/form-data">
+          <form id="uploadForm" enctype="multipart/form-data">
             <div class="space-y-4">
               <input name="pdfFile" type="file"
-                class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
-                placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></input>
-              <button
+                class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]">
+              <button type="submit"
                 class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
                 <span class="material-symbols-outlined">shield_moon</span>
                 <span>Scan Message</span>
               </button>
             </div>
           </form>
+
           <div class="space-y-6 rounded-xl border border-secondary-800 bg-secondary-900 p-6 risk-low">
             <div class="flex items-center justify-between">
               <h3 class="text-lg font-bold">Scan Results</h3>
@@ -176,13 +176,13 @@
             <div class="space-y-2">
               <div class="flex justify-between text-sm font-medium text-surface-400">
                 <span>Risk Score</span>
-                <span>20%</span>
+                <span id="risk-score">20%</span>
               </div>
               <div class="h-2 w-full rounded-full bg-secondary-800">
-                <div class="h-2 rounded-full bg-[var(--risk-color)]" style="width: 20%;"></div>
+                <div id="risk-bar" class="h-2 rounded-full bg-[var(--risk-color)]" style="width: 20%;"></div>
               </div>
             </div>
-            <p class="text-surface-300">
+            <p id="risk-message" class="text-surface-300">
               This message shows some characteristics of a typical marketing communication. While it doesn't appear to
               be a direct scam, always exercise caution and avoid clicking on unfamiliar links or providing personal
               information.
@@ -210,5 +210,43 @@
   </div>
 
 </body>
+<script>
+  document.getElementById('scanForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    console.log("hi")
+    const message = this.message.value;
+    const submitBtn = this.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin">autorenew</span> <span>Scanning...</span>`;
+    const res = await fetch('/api/scan', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
+    });
+    result = await res.json();
+    if (result) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span class="material-symbols-outlined">shield_moon</span> <span>Scan Message</span>';
+      console.log(result);
+      document.getElementById('risk-score').innerHTML = result.reply["Risk Score"];
+      document.getElementById('risk-bar').style.width = `${result.reply["Risk Score"]}%`; // Use backticks here
+      document.getElementById('risk-message').innerHTML = result.reply["Message"];
+    }
+
+
+    // handle response here
+  });
+
+  document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      body: formData
+    });
+    // handle response here
+  });
+</script>
 
 </html>
