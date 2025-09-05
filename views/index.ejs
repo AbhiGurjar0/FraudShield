@@ -1,0 +1,282 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        :root {
+        --primary-500: #38e07b;
+        --primary-600: #26a95a;
+        --secondary-400: #1a2c22;
+        --secondary-500: #122118;
+        --neutral-50: #f8fafc;
+        --neutral-100: #f1f5f9;
+        --neutral-200: #e2e8f0;
+        --neutral-300: #cbd5e1;
+        --neutral-400: #94a3b8;
+        --neutral-500: #64748b;
+        --neutral-600: #475569;
+        --neutral-700: #334155;
+        --neutral-800: #1e293b;
+        --neutral-900: #0f172a;
+        --danger-500: #ef4444;
+        --danger-600: #dc2626;
+      }
+      .glowing-badge {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% {
+          box-shadow: 0 0 2px var(--primary-500);
+        }
+        50% {
+          box-shadow: 0 0 10px var(--primary-500), 0 0 20px var(--primary-500);
+        }
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--secondary-500)] text-white" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-black/30 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-3 mb-10">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-[var(--primary-500)] to-[var(--primary-600)] rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white">shield</span>
+                    </div>
+                    <h1 class="text-xl font-bold">FraudShield AI</h1>
+                </div>
+                <nav class="flex flex-col gap-2">
+                    <a class="flex items-center gap-3 px-4 py-2 rounded-full bg-[var(--primary-500)] text-black font-semibold"
+                        href="#">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span>Alerts</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">description</span>
+                        <span>Reports</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span>Settings</span>
+                    </a>
+                    <a class="flex items-center gap-3 px-4 py-2 rounded-full hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined">help</span>
+                        <span>Help</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-3">
+                <img alt="User Avatar" class="rounded-full h-[2.5vw] w-[2.5vw]"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAHc--C8FKTE-E805Pu5fjV0NiRse9CZ5FSl3iJ2BUoI5oZTI8kVFZmrTvM6uewb4qz62bSMUPF4g53FutlC8xlQ3e5QgdXvmap2gpvt5bV8iijCJxy3OBaSEKhn9F1ccpXXWtP957YAUT9WAcbz52Y5FknyroXW1eUoy70dRXbEI-3q9jX1o1vtoFxv8eye9QQ0LaDZiP0Q4oOoWfNg5h50bOYRxYjGOhCeTQnoY-6LFcWSBJ5PvbP8lSMOM3LEhwwUrjY95ywa1f" />
+                <div class="flex">
+                    <div>
+                        <p class="font-semibold">Jane Doe</p>
+                        <p class="text-sm text-[var(--neutral-400)]">jane@example.com</p>
+                    </div>
+                    <button class="ml-auto text-[var(--neutral-400)] hover:text-white transition-colors">
+                        <span class="material-symbols-outlined">logout</span>
+                    </button>
+
+                </div>
+
+            </div>
+        </aside>
+        <main class="flex-1 p-8 grid grid-cols-3 grid-rows-[auto_1fr_1fr] gap-8">
+            <header class="col-span-3">
+                <h2 class="text-4xl font-bold tracking-tight">Dashboard</h2>
+            </header>
+            <section
+                class="col-span-3 bg-[var(--secondary-400)] rounded-2xl p-6 shadow-[0_10px_20px_rgba(0,0,0,0.2),_0_6px_6px_rgba(0,0,0,0.2)]">
+                <h3 class="text-xl font-bold mb-4">Summary Metrics</h3>
+                <div class="grid grid-cols-4 gap-6">
+                    <div class="bg-black/20 p-6 rounded-xl flex flex-col gap-2 transition-transform hover:scale-105">
+                        <p class="text-[var(--neutral-300)]">Total Alerts</p>
+                        <p class="text-4xl font-bold">1,234</p>
+                        <p class="text-[var(--primary-500)] font-semibold flex items-center">
+                            <span class="material-symbols-outlined text-lg">arrow_upward</span>
+                            <span>+12%</span>
+                        </p>
+                    </div>
+                    <div class="bg-black/20 p-6 rounded-xl flex flex-col gap-2 transition-transform hover:scale-105">
+                        <p class="text-[var(--neutral-300)]">Active Scams</p>
+                        <p class="text-4xl font-bold">567</p>
+                        <p class="text-[var(--danger-500)] font-semibold flex items-center">
+                            <span class="material-symbols-outlined text-lg">arrow_downward</span>
+                            <span>-5%</span>
+                        </p>
+                    </div>
+                    <div class="bg-black/20 p-6 rounded-xl flex flex-col gap-2 transition-transform hover:scale-105">
+                        <p class="text-[var(--neutral-300)]">Resolved Cases</p>
+                        <p class="text-4xl font-bold">667</p>
+                        <p class="text-[var(--primary-500)] font-semibold flex items-center">
+                            <span class="material-symbols-outlined text-lg">arrow_upward</span>
+                            <span>+10%</span>
+                        </p>
+                    </div>
+                    <div class="bg-black/20 p-6 rounded-xl flex flex-col gap-2 transition-transform hover:scale-105">
+                        <p class="text-[var(--neutral-300)]">False Positives</p>
+                        <p class="text-4xl font-bold">123</p>
+                        <p class="text-[var(--danger-500)] font-semibold flex items-center">
+                            <span class="material-symbols-outlined text-lg">arrow_downward</span>
+                            <span>-2%</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section
+                class="col-span-2 bg-[var(--secondary-400)] rounded-2xl p-6 shadow-[0_10px_20px_rgba(0,0,0,0.2),_0_6px_6px_rgba(0,0,0,0.2)] flex flex-col">
+                <h3 class="text-xl font-bold mb-4">Live Scam Alerts</h3>
+                <div class="flex-1 overflow-y-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="p-3">Alert ID</th>
+                                <th class="p-3">Timestamp</th>
+                                <th class="p-3">Severity</th>
+                                <th class="p-3">Description</th>
+                                <th class="p-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10">
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3 font-mono text-[var(--neutral-300)]">#12345</td>
+                                <td class="p-3 text-[var(--neutral-400)]">2024-01-15 10:30 AM</td>
+                                <td class="p-3">
+                                    <span
+                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold bg-[var(--danger-600)] text-white glowing-badge">
+                                        <span class="w-2 h-2 bg-white rounded-full"></span>High
+                                    </span>
+                                </td>
+                                <td class="p-3 text-[var(--neutral-300)]">Suspicious stock activity detected</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-amber-500/20 text-amber-400">Active</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3 font-mono text-[var(--neutral-300)]">#12346</td>
+                                <td class="p-3 text-[var(--neutral-400)]">2024-01-15 11:15 AM</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-500/20 text-yellow-400">Medium</span>
+                                </td>
+                                <td class="p-3 text-[var(--neutral-300)]">Unusual transaction pattern</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-500/20 text-blue-400">Pending</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3 font-mono text-[var(--neutral-300)]">#12347</td>
+                                <td class="p-3 text-[var(--neutral-400)]">2024-01-15 12:00 PM</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-green-500/20 text-green-400">Low</span>
+                                </td>
+                                <td class="p-3 text-[var(--neutral-300)]">Potential phishing attempt</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-gray-500/20 text-gray-400">Resolved</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3 font-mono text-[var(--neutral-300)]">#12348</td>
+                                <td class="p-3 text-[var(--neutral-400)]">2024-01-15 01:45 PM</td>
+                                <td class="p-3">
+                                    <span
+                                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold bg-[var(--danger-600)] text-white glowing-badge">
+                                        <span class="w-2 h-2 bg-white rounded-full"></span>High
+                                    </span>
+                                </td>
+                                <td class="p-3 text-[var(--neutral-300)]">Account takeover suspected</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-amber-500/20 text-amber-400">Active</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3 font-mono text-[var(--neutral-300)]">#12349</td>
+                                <td class="p-3 text-[var(--neutral-400)]">2024-01-15 02:30 PM</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-yellow-500/20 text-yellow-400">Medium</span>
+                                </td>
+                                <td class="p-3 text-[var(--neutral-300)]">Unauthorized access attempt</td>
+                                <td class="p-3"><span
+                                        class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-500/20 text-blue-400">Pending</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section
+                class="col-span-1 bg-[var(--secondary-400)] rounded-2xl p-6 shadow-[0_10px_20px_rgba(0,0,0,0.2),_0_6px_6px_rgba(0,0,0,0.2)] flex flex-col">
+                <h3 class="text-xl font-bold mb-4">Trending Suspicious Stocks</h3>
+                <div class="flex-1 overflow-y-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="p-3">Symbol</th>
+                                <th class="p-3">Alerts</th>
+                                <th class="p-3">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10">
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3"><span class="font-bold">ABC</span> <span
+                                        class="text-sm text-[var(--neutral-400)] block">Alpha Beta Corp</span></td>
+                                <td class="p-3 text-[var(--neutral-300)]">150</td>
+                                <td class="p-3 text-[var(--primary-500)] font-semibold">+15%</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3"><span class="font-bold">XYZ</span> <span
+                                        class="text-sm text-[var(--neutral-400)] block">Xenith Zenith Inc</span></td>
+                                <td class="p-3 text-[var(--neutral-300)]">120</td>
+                                <td class="p-3 text-[var(--primary-500)] font-semibold">+10%</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3"><span class="font-bold">DEF</span> <span
+                                        class="text-sm text-[var(--neutral-400)] block">Delta Echo Financial</span></td>
+                                <td class="p-3 text-[var(--neutral-300)]">100</td>
+                                <td class="p-3 text-[var(--primary-500)] font-semibold">+8%</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3"><span class="font-bold">GHI</span> <span
+                                        class="text-sm text-[var(--neutral-400)] block">Gamma Holdings Intl.</span></td>
+                                <td class="p-3 text-[var(--neutral-300)]">80</td>
+                                <td class="p-3 text-[var(--primary-500)] font-semibold">+5%</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="p-3"><span class="font-bold">JKL</span> <span
+                                        class="text-sm text-[var(--neutral-400)] block">Juno Kappa Limited</span></td>
+                                <td class="p-3 text-[var(--neutral-300)]">60</td>
+                                <td class="p-3 text-[var(--primary-500)] font-semibold">+3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section
+                class="col-span-3 bg-[var(--secondary-400)] rounded-2xl p-6 shadow-[0_10px_20px_rgba(0,0,0,0.2),_0_6px_6px_rgba(0,0,0,0.2)]">
+                <h3 class="text-xl font-bold mb-4">Fraud Heatmap</h3>
+                <div class="w-full h-64 bg-center bg-no-repeat aspect-video bg-cover rounded-xl object-cover"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzs4VOouIMEfGBqBlNbwFpqF6EJ2nCFENmsLVUf0wHAsixBAFwEOYy6sCIBTmgwe-o9fmkMNmtz2xfiiHL02kdvFEpW482bDulMkxyJ6HUo2ozHx6VgnNtPmtC-JmicGCkY2_vdKkJ3Sm34CZfmsH80OG3k92-baeT6gXd92qQ8FunlZplgbWunbs0u-dJcFcf3hAL0m1I4Bn4o6tHfXaNDf6AK8PN0RXKhhQxUWPvl6caMz-rWxYs2YeYd51H3fU7DcI0Y-iZObKs");'>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+
+</html>

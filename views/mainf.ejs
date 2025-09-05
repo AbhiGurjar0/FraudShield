@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <title>FraudShield AI</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+        --primary-50: #f0fdf6;
+        --primary-100: #dcfce9;
+        --primary-200: #bbf7d4;
+        --primary-300: #86efb6;
+        --primary-400: #4ade8f;
+        --primary-500: #22c56a;
+        --primary-600: #16a354;
+        --primary-700: #158043;
+        --primary-800: #166538;
+        --primary-900: #14532e;
+        --primary-950: #0a2f1a;
+        --secondary-50: #f2f7f4;
+        --secondary-100: #e2ede7;
+        --secondary-200: #c6dace;
+        --secondary-300: #a0c1ae;
+        --secondary-400: #7c9f8f;
+        --secondary-500: #618274;
+        --secondary-600: #4e685d;
+        --secondary-700: #3f544b;
+        --secondary-800: #35453e;
+        --secondary-900: #2d3934;
+        --secondary-950: #19211d;
+        --surface-0: #ffffff;
+        --surface-50: #f8fafc;
+        --surface-100: #f1f5f9;
+        --surface-200: #e2e8f0;
+        --surface-300: #cbd5e1;
+        --surface-400: #94a3b8;
+        --surface-500: #64748b;
+        --surface-600: #475569;
+        --surface-700: #334155;
+        --surface-800: #1e293b;
+        --surface-900: #0f172a;
+        --surface-950: #020617;
+      }
+      .dark {
+        --primary-50: #0a2f1a;
+        --primary-100: #14532e;
+        --primary-200: #166538;
+        --primary-300: #158043;
+        --primary-400: #16a354;
+        --primary-500: #22c56a;
+        --primary-600: #4ade8f;
+        --primary-700: #86efb6;
+        --primary-800: #bbf7d4;
+        --primary-900: #dcfce9;
+        --primary-950: #f0fdf6;
+        --secondary-50: #19211d;
+        --secondary-100: #2d3934;
+        --secondary-200: #35453e;
+        --secondary-300: #3f544b;
+        --secondary-400: #4e685d;
+        --secondary-500: #618274;
+        --secondary-600: #7c9f8f;
+        --secondary-700: #a0c1ae;
+        --secondary-800: #c6dace;
+        --secondary-900: #e2ede7;
+        --secondary-950: #f2f7f4;
+        --surface-0: #0f172a;
+        --surface-50: #1e293b;
+        --surface-100: #334155;
+        --surface-200: #475569;
+        --surface-300: #64748b;
+        --surface-400: #94a3b8;
+        --surface-500: #cbd5e1;
+        --surface-600: #e2e8f0;
+        --surface-700: #f1f5f9;
+        --surface-800: #f8fafc;
+        --surface-900: #ffffff;
+        --surface-950: #ffffff;
+      }
+      .risk-low {
+        --risk-color: #38e07b;
+        --risk-bg-color: #1a3826;
+      }
+      .risk-medium {
+        --risk-color: #facc15;
+        --risk-bg-color: #3a320b;
+      }
+      .risk-high {
+        --risk-color: #f87171;
+        --risk-bg-color: #4a1d1d;
+      }
+    </style>
+</head>
+
+<body class="bg-secondary-950 text-surface-100 dark" style='font-family: "Spline Sans", "Noto Sans", sans-serif;'>
+  <div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+    <div class="flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-secondary-900 px-4 sm:px-6 lg:px-10 py-4">
+        <div class="flex items-center gap-3">
+          <div class="size-8 text-primary-500">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_6_543)">
+                <path
+                  d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z"
+                  fill="currentColor"></path>
+                <path clip-rule="evenodd"
+                  d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z"
+                  fill="currentColor" fill-rule="evenodd"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_6_543">
+                  <rect fill="white" height="48" width="48"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold">FraudShield AI</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-secondary-900 text-surface-400 hover:bg-secondary-800 hover:text-surface-100">
+            <span class="material-symbols-outlined text-2xl">help</span>
+          </button>
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANC-vEBmRmOjemr41ujgXDLv2ir_iR_qPsege9SxIvhmzlj9L-eKnXt24IirRhrjKTXcivrTgwo01KvV7Ha___U5oZOhROn44aFRZhfjtSeiO03RIMoMPS9Eo_-A2S0B118QBjWTjuMgWekSeDAQxN_FH7OIpqxLp12FNhQSNG-SQYIWFA5R3cgSsUbamoCF73sHNTWFkeMw50pUtGNlgKxYyCgzmkUSOv5niDX8bp6d2wRoSVT2OMimpI9uJkmZEcG1jC1JQ292sA");'>
+          </div>
+        </div>
+      </header>
+      <main class="flex flex-1 justify-center px-4 py-8 sm:px-6 lg:px-8">
+        <div class="w-full max-w-2xl space-y-8">
+          <div class="text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-surface-50">Is this a scam?</h2>
+            <p class="mt-2 text-lg text-surface-400">Paste a suspicious message below to find out.</p>
+          </div>
+          <div class="space-y-4">
+            <textarea
+              class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
+              placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></textarea>
+            <button
+              class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
+              <span class="material-symbols-outlined">shield_moon</span>
+              <span>Scan Message</span>
+            </button>
+          </div>
+          <div class="space-y-6 rounded-xl border border-secondary-800 bg-secondary-900 p-6 risk-low">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold">Scan Results</h3>
+              <div
+                class="flex items-center gap-2 rounded-full bg-[var(--risk-bg-color)] px-3 py-1 text-sm font-medium text-[var(--risk-color)]">
+                <span class="material-symbols-outlined text-base">verified_user</span>
+                <span>Low Risk</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm font-medium text-surface-400">
+                <span>Risk Score</span>
+                <span>20%</span>
+              </div>
+              <div class="h-2 w-full rounded-full bg-secondary-800">
+                <div class="h-2 rounded-full bg-[var(--risk-color)]" style="width: 20%;"></div>
+              </div>
+            </div>
+            <p class="text-surface-300">
+              This message shows some characteristics of a typical marketing communication. While it doesn't appear to
+              be a direct scam, always exercise caution and avoid clicking on unfamiliar links or providing personal
+              information.
+            </p>
+            <button
+              class="flex w-full items-center justify-center gap-2 rounded-full bg-secondary-800 px-6 py-3 text-base font-bold text-surface-200 transition-colors hover:bg-secondary-700">
+              <span class="material-symbols-outlined">report</span>
+              <span>Report as Scam</span>
+            </button>
+          </div>
+        </div>
+      </main>
+      <footer class="mt-auto border-t border-secondary-900">
+        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p class="text-sm text-surface-500">© 2024 FraudShield AI. All rights reserved.</p>
+            <div class="flex gap-6">
+              <a class="text-sm text-surface-400 hover:text-surface-100" href="#">Terms of Service</a>
+              <a class="text-sm text-surface-400 hover:text-surface-100" href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
+
+</html>
