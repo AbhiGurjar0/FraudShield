@@ -9,7 +9,6 @@ import multer from 'multer';
 dotenv.config();
 const upload = multer({ dest: 'uploads/' });
 const app = express();
-const openai = new OpenAI({ apiKey: "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" });
 
 //transcribe
 async function extractPdfFromUrl(pdfUrl) {
@@ -22,31 +21,31 @@ async function extractPdfFromUrl(pdfUrl) {
 
 
 
-//transcription with Whisper
-async function transcribeVideoFromUrl(videoUrl) {
-    const res = await fetch(videoUrl);
-    const arrayBuffer = await res.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+// //transcription with Whisper
+// async function transcribeVideoFromUrl(videoUrl) {
+//     const res = await fetch(videoUrl);
+//     const arrayBuffer = await res.arrayBuffer();
+//     const buffer = Buffer.from(arrayBuffer);
 
-    fs.writeFileSync("temp_video.mp4", buffer);
-    // const tempFilePath = path.join(process.cwd(), "temp_video.mp4");
-    const tempFilePath = path.join("temp_video.mp4");
-    try {
-        fs.writeFileSync(tempFilePath, buffer);
-    } catch (err) {
-        console.error("Failed to save video file:", err);
-        throw err;
-    }
+//     fs.writeFileSync("temp_video.mp4", buffer);
+//     // const tempFilePath = path.join(process.cwd(), "temp_video.mp4");
+//     const tempFilePath = path.join("temp_video.mp4");
+//     try {
+//         fs.writeFileSync(tempFilePath, buffer);
+//     } catch (err) {
+//         console.error("Failed to save video file:", err);
+//         throw err;
+//     }
 
 
-    const transcription = await openai.audio.transcriptions.create({
-        file: fs.createReadStream(tempFilePath),
-        model: "whisper-1",
-    });
+//     const transcription = await openai.audio.transcriptions.create({
+//         file: fs.createReadStream(tempFilePath),
+//         model: "whisper-1",
+//     });
 
-    fs.unlinkSync(tempFilePath); // delete temp file
-    return transcription.text;
-}
+//     fs.unlinkSync(tempFilePath); // delete temp file
+//     return transcription.text;
+// }
 const client = new OpenAI({
     apiKey: process.env.OPENROUTER_KEY,
     baseURL: "https://openrouter.ai/api/v1"
@@ -67,7 +66,7 @@ app.get("/ask", async (req, res) => {
 
 });
 app.post('/upload', upload.single('pdfFile'), async (req, res) => {
-    console.log(req.file); // Uploaded file info
+    console.log(req.file); 
     const pdfText = await extractPdfFromUrl(req.file.path);
     result = pdfText;
     console.log(result);
