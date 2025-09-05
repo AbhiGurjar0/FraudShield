@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fraud Shield Navbar</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom gradient background for navbar */
+      nav {
+        background: radial-gradient(
+            circle at left center,
+            rgb(68, 113, 118) 0%,
+            black 40%
+          ),
+          radial-gradient(circle at center, rgba(0, 0, 0, 0.6) 0%, black 100%);
+        background-blend-mode: overlay;
+      }
+
+      /* Hover underline animation for nav links */
+      .nav-link {
+        position: relative;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background-color: rgb(68, 113, 118);
+        transition: width 0.3s ease;
+        border-radius: 1px;
+      }
+      .nav-link:hover,
+      .nav-link:focus {
+        color: rgb(68, 113, 118);
+        outline: none;
+      }
+      .nav-link:hover::after,
+      .nav-link:focus::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900">
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 shadow-lg"
+    >
+      <!-- Left: Logo -->
+      <div class="text-white font-bold text-lg select-none">
+        Fraud Shield AI
+      </div>
+
+      <!-- Middle: Navigation Links -->
+      <ul class="hidden md:flex space-x-10">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Right: Login Button -->
+      <div>
+        <button
+          type="button"
+          class="rounded-full px-5 py-2 bg-gradient-to-r from-teal-500 to-teal-700 text-white font-semibold shadow-md hover:from-teal-600 hover:to-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-400 transition"
+        >
+          Login
+        </button>
+      </div>
+    </nav>
+
+    <!-- about us  -->
+    <section
+       class="hero min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 relative bg-cover bg-center bg-no-repeat"
+  style="background-image: url('https://plus.unsplash.com/premium_photo-1661764393655-1dbffee8c0ce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"
+>
+  <!-- Dark overlay for readability -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="text-center max-w-4xl mx-auto relative z-10">
+        <!-- Main Heading -->
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white"
+        >
+          AI-Powered Fraud Detection & Investor Protection
+        </h1>
+
+        <!-- Subheading -->
+        <p
+          class="text-xl md:text-2xl lg:text-3xl mb-10 text-gray-200 font-light leading-relaxed"
+        >
+          Protecting retail investors from scams, fake advisors, fraudulent
+          apps, and market manipulation with the power of AI.
+        </p>
+
+        <!-- CTA Button -->
+        <button
+          class="cta-button text-white font-bold py-4 px-10 rounded-full text-lg md:text-xl bg-gradient-to-r from-black to-teal-500 hover:opacity-90 transition"
+        >
+          Get Started Free
+        </button>
+
+    
+      </div>
+    </section>
+
+
+    <!-- Features -->
+    <section class="bg-gradient-to-r from-black via-gray-900 to-[#447176] py-16 px-6">
+        <!-- 1st mvp -->
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+        Fraud Detection AI MVP
+      </h2>
+      <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+        Our AI-powered MVP is designed to detect fraudulent activities, fake advisors, and suspicious market manipulation in real-time. By analyzing behavioral patterns, transaction anomalies, and communication data, it ensures retail investors stay safe and informed.
+      </p>
+    </div>
+
+    <!-- Feature Row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Left Content -->
+      <div>
+        <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+          AI-Powered Verify Advisor / RA / Broker
+        </h3>
+        <p class="text-gray-300 mb-6">
+          This module uses advanced Natural Language Processing (NLP) and anomaly detection models to flag fraudulent investment schemes and advisor scams before they cause damage. It is built to protect retail investors, enhance trust, and promote safe financial growth.
+        </p>
+        <button class="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-teal-500 text-black font-semibold shadow-lg hover:scale-105 transition-transform">
+          Start for Free 
+        </button>
+      </div>
+
+      <!-- Right Side Card/Image -->
+      <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
+  <!-- Actual Project Image -->
+  <img src="./images/Advisor.png" alt="AI-Powered Verify Advisor Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+</div>
+  </div>
+  </div>
+
+  <!-- 2nd mvp -->
+   <div class="max-w-7xl mx-auto mt-20">
+  <!-- Feature Row -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <!-- Left Content -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+        AI-Powered Social Media Risk Analyzer
+      </h3>
+      <p class="text-gray-300 mb-6">
+        This module scans pasted social media posts and online discussions for potential fraud signals, misleading claims, and pump-and-dump patterns. 
+        It assigns an <span class="font-semibold text-green-400">explainable risk score</span> with highlighted snippets so investors clearly understand the reasoning behind each flag. 
+        Designed for transparency, it helps users make safe, informed decisions online.
+      </p>
+      <button class="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-teal-500 text-black font-semibold shadow-lg hover:scale-105 transition-transform">
+        Start for Free
+      </button>
+    </div>
+
+    <!-- Right Side Card/Image -->
+    <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
+      <!-- Placeholder Image (replace later with real demo screenshot) -->
+      <img src="./images/social.png" alt="AI-Powered Social Risk Analyzer Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+<!-- 3rd mvp -->
+
+<div class="max-w-7xl mx-auto mt-20">
+  <!-- Feature Row -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <!-- Left Content -->
+    <div>
+      <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
+        Corporate Announcement Credibility Checker
+      </h3>
+      <p class="text-gray-300 mb-6">
+        This module ingests <span class="font-semibold text-green-400">corporate announcements</span> 
+        and evaluates their trustworthiness by comparing statements with historical baselines, 
+        company records, and past performance data. 
+        It generates a <span class="font-semibold text-green-400">credibility score</span> and highlights 
+        potential discrepancies. 
+        A simple dashboard visualization simulates how a suspicious post could trigger 
+        a price spike, helping investors stay alert to manipulative tactics.
+      </p>
+      <button class="px-6 py-3 rounded-full bg-gradient-to-r from-green-400 to-teal-500 text-black font-semibold shadow-lg hover:scale-105 transition-transform">
+        Start for Free
+      </button>
+    </div>
+
+    <!-- Right Side Card/Image -->
+    <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
+      <!-- Placeholder Image (replace with actual dashboard visualization) -->
+      <img src="./images/corporate.png" alt="Corporate Announcement Credibility Checker Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+    </div>
+  </div>
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-gradient-to-r from-gray-900 to-black text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-10">
+    
+    <!-- Logo + Tagline -->
+  <div class="md:col-span-2">
+  <div class="flex items-center space-x-3 mb-4">
+    <img src="./images/logo2.jpeg" alt="FraudShield AI Logo" class="w-10 h-10 rounded-full">
+    <h2 class="text-xl font-bold">FraudShield AI</h2>
+  </div>
+  <p class="text-gray-400 max-w-sm">
+    Protecting retail investors with AI-driven fraud detection.
+  </p>
+</div>
+
+
+    <!-- Company -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Company</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-teal-400">About Us</a></li>
+        <li><a href="#" class="hover:text-teal-400">Careers</a></li>
+        <li><a href="#" class="hover:text-teal-400">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Solutions -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Solutions</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-teal-400">Advisor Verification</a></li>
+        <li><a href="#" class="hover:text-teal-400">Social Media Risk Scoring</a></li>
+        <li><a href="#" class="hover:text-teal-400">Corporate Credibility Checker</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div>
+      <h3 class="text-lg font-semibold mb-3">Resources</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-teal-400">Blog</a></li>
+        <li><a href="#" class="hover:text-teal-400">Documentation</a></li>
+        <li><a href="#" class="hover:text-teal-400">FAQs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto">
+    
+    <!-- Copyright -->
+    <p class="text-gray-400 text-sm">
+      © 2025 FraudShield AI. All Rights Reserved.
+    </p>
+
+    <!-- Connect + Socials -->
+    <div class="flex items-center space-x-6 mt-4 md:mt-0">
+      <!-- Social Media Icons -->
+      <a href="#" class="hover:text-teal-400"><i class="fab fa-linkedin text-xl"></i></a>
+      <a href="#" class="hover:text-teal-400"><i class="fab fa-twitter text-xl"></i></a>
+      <a href="#" class="hover:text-teal-400"><i class="fab fa-youtube text-xl"></i></a>
+      <a href="#" class="hover:text-teal-400"><i class="fab fa-github text-xl"></i></a>
+
+      <!-- Language Selector -->
+      <select class="bg-gray-800 text-gray-300 px-3 py-1 rounded-lg text-sm">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Spanish</option>
+      </select>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
