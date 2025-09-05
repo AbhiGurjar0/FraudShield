@@ -48,33 +48,8 @@
     </style>
   </head>
   <body class="bg-gray-900">
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 shadow-lg"
-    >
-      <!-- Left: Logo -->
-      <div class="text-white font-bold text-lg select-none">
-        Fraud Shield AI
-      </div>
-
-      <!-- Middle: Navigation Links -->
-      <ul class="hidden md:flex space-x-10">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About Us</a></li>
-        <li><a href="#features" class="nav-link">Features</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-
-      <!-- Right: Login Button -->
-      <div>
-        <button
-          type="button"
-          class="rounded-full px-5 py-2 bg-gradient-to-r from-teal-500 to-teal-700 text-white font-semibold shadow-md hover:from-teal-600 hover:to-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-400 transition"
-        >
-          Login
-        </button>
-      </div>
-    </nav>
-
+    <%-include('partials/Nav')%>
+    
     <!-- about us  -->
     <section
        class="hero min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 relative bg-cover bg-center bg-no-repeat"
@@ -143,7 +118,7 @@
       <!-- Right Side Card/Image -->
       <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
   <!-- Actual Project Image -->
-  <img src="./images/Advisor.png" alt="AI-Powered Verify Advisor Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+  <img src="../images/Advisor.png" alt="AI-Powered Verify Advisor Demo" class="rounded-xl shadow-md max-w-full h-auto" />
 </div>
   </div>
   </div>
@@ -170,7 +145,7 @@
     <!-- Right Side Card/Image -->
     <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
       <!-- Placeholder Image (replace later with real demo screenshot) -->
-      <img src="./images/social.png" alt="AI-Powered Social Risk Analyzer Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+      <img src="../images/social.png" alt="AI-Powered Social Risk Analyzer Demo" class="rounded-xl shadow-md max-w-full h-auto" />
     </div>
   </div>
 </div>
@@ -202,7 +177,7 @@
     <!-- Right Side Card/Image -->
     <div class="bg-black/40 rounded-2xl shadow-lg p-6 flex justify-center items-center">
       <!-- Placeholder Image (replace with actual dashboard visualization) -->
-      <img src="./images/corporate.png" alt="Corporate Announcement Credibility Checker Demo" class="rounded-xl shadow-md max-w-full h-auto" />
+      <img src="../images/corporate.png" alt="Corporate Announcement Credibility Checker Demo" class="rounded-xl shadow-md max-w-full h-auto" />
     </div>
   </div>
 </div>

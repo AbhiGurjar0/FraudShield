@@ -1,5 +1,6 @@
-const app = require('./src/app');
-const connectDB = require('./src/db/db');
+import app from "./src/app.js";          // 👈 note the .js extension
+import connectDB from "./src/db/db.js";  // 👈 same here
+
 connectDB();
 
 app.listen(3000, () => {

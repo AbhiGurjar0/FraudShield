@@ -140,16 +140,30 @@
             <h2 class="text-3xl font-bold tracking-tight text-surface-50">Is this a scam?</h2>
             <p class="mt-2 text-lg text-surface-400">Paste a suspicious message below to find out.</p>
           </div>
-          <div class="space-y-4">
-            <textarea
-              class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
-              placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></textarea>
-            <button
-              class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
-              <span class="material-symbols-outlined">shield_moon</span>
-              <span>Scan Message</span>
-            </button>
-          </div>
+          <form action="/api/scan" method="POST">
+            <div class="space-y-4">
+              <textarea name="message"
+                class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
+                placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></textarea>
+              <button
+                class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
+                <span class="material-symbols-outlined">shield_moon</span>
+                <span>Scan Message</span>
+              </button>
+            </div>
+          </form>
+          <form action="/api/upload" method="POST" enctype="multipart/form-data">
+            <div class="space-y-4">
+              <input name="pdfFile" type="file"
+                class="form-input w-full resize-none rounded-xl border border-secondary-800 bg-secondary-900 p-4 text-base text-surface-200 placeholder:text-surface-500 focus:border-primary-500 focus:ring-primary-500 min-h-[160px]"
+                placeholder="e.g., 'Congratulations! You've won a $1000 gift card. Click here to claim...'"></input>
+              <button
+                class="flex w-full items-center justify-center gap-2 rounded-full bg-[#38e07b] px-6 py-3 text-base font-bold text-secondary-950 transition-colors hover:bg-primary-400">
+                <span class="material-symbols-outlined">shield_moon</span>
+                <span>Scan Message</span>
+              </button>
+            </div>
+          </form>
           <div class="space-y-6 rounded-xl border border-secondary-800 bg-secondary-900 p-6 risk-low">
             <div class="flex items-center justify-between">
               <h3 class="text-lg font-bold">Scan Results</h3>
