@@ -228,7 +228,7 @@
     if (result) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<span class="material-symbols-outlined">shield_moon</span> <span>Scan Message</span>';
-      console.log(result);
+
       document.getElementById('risk-score').innerHTML = result.reply["Risk Score"];
       document.getElementById('risk-bar').style.width = `${result.reply["Risk Score"]}%`;
       document.getElementById('risk-message').innerHTML = result.reply["Message"];
